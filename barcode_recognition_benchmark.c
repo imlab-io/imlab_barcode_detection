@@ -64,8 +64,8 @@ float find_overlap(struct point_t correct[4], struct point_t detection[4])
         rotate(&detection[i].x, &detection[i].y, c2x, c2y, -t2);
     }
 
-    struct rectangle_t r1 = rectangle(min(correct[0].x,correct[3].x), min(correct[0].y,correct[3].y), abs(correct[3].x - correct[0].x), abs(correct[3].y - correct[0].y), 0);
-    struct rectangle_t r2 = rectangle(min(detection[0].x, detection[3].x), min(detection[0].y, detection[3].y), abs(detection[3].x - detection[0].x), abs(detection[3].y - detection[0].y), 0);
+    struct rectangle_t r1 = rectangle(minimum(correct[0].x,correct[3].x), minimum(correct[0].y,correct[3].y), abs(correct[3].x - correct[0].x), abs(correct[3].y - correct[0].y), 0);
+    struct rectangle_t r2 = rectangle(minimum(detection[0].x, detection[3].x), minimum(detection[0].y, detection[3].y), abs(detection[3].x - detection[0].x), abs(detection[3].y - detection[0].y), 0);
 
     // return the normalized area between the two bounding boxes
     return rectangle_overlap(r1, r2, 1);
